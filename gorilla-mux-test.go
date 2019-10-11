@@ -14,7 +14,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", handlers.HomeHandler)
-	// r.HandleFunc("/users", ProductHandler)
+	r.HandleFunc("/users", handlers.GetAllUsers).Methods("GET")
 	// r.HandleFunc("/articles", ArticlesHandler)
 	http.Handle("/", r)
 
