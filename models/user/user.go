@@ -9,7 +9,8 @@ type User struct {
 
 //Users is an array of User's
 type Users struct {
-	users []User
+	// slice is go's version of a dynamic array
+	Users []User
 }
 
 // NewUser is the Constructor for user
@@ -28,4 +29,13 @@ func (u *User) SetAge(age int) *User {
 func (u *User) Approve(approved bool) *User {
 	u.Approved = approved
 	return u
+}
+
+// Append adds a user struct to the Users slice
+func (us *Users) Append(u User) *Users {
+	if us.Users == nil {
+		us.Users = []User{}
+	}
+	us.Users = append(us.Users, u)
+	return us
 }
